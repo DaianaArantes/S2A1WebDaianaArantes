@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+
+<!--Daiana Arantes-->
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8" />
+
+        <title>Assignment_01</title>
+
+        <style>
+            div div {
+                display: block;
+                border: 2px solid black;
+                margin: 15px;
+                padding: 15px;
+                text-align: center;
+                width: 500px;
+            }
+
+            #answerSumOdd {
+                text-align: center;
+                padding: 5px 0;
+            }
+
+            #answerSumEven {
+                text-align: center;
+                padding: 5px 0;
+            }
+
+            #answerAverageOdd {
+                text-align: center;
+                padding: 5px 0;
+            }
+
+
+            #answerAverageEven {
+                text-align: center;
+                padding: 5px 0;
+            }
+
+
+            fieldset {
+                width: 1143px;
+                margin: auto;
+                background-color: mistyrose;
+            }
+
+            #Odd {
+                float: right;
+                background-color: #ccffff;
+            }
+
+            #Even {
+                float: left;
+                background-color: #e6ffcc;
+            }
+
+            #blocks {
+                height: 600px;
+                width: 1200px;
+                margin: auto;
+            }
+
+            body {
+                text-align: center;
+            }
+
+        </style>
+
+        <script>
+            var oddNumber = 0;
+            var evenNumber = 0;
+            var sumEvenNumbers = 0;
+            var sumOddNumbers = 0;
+            var countEvenNumbers = 0;
+            var countOddNumbers = 0;
+            var averageEvenNumbers = 0;
+            var averageOddNumbers = 0;
+
+            function ValidateNumber() {
+
+                //Validates if input is Even
+                if (document.getElementById("getNumber").value % 2 == 0 && document.getElementById("getNumber").value != 0) {
+                    evenNumber = parseInt(document.getElementById("getNumber").value);
+
+                    //Validates if even input is not a letter
+                    if (isNaN(evenNumber)) {
+                        alert("not a number");
+                    }
+
+                    //if it is not a letter then do sum and average
+                    else {
+                        sumEvenNumbers += evenNumber;
+                        countEvenNumbers++;
+                        document.getElementById("answerSumEven").value = sumEvenNumbers;
+                        averageEvenNumbers = (parseInt(sumEvenNumbers) / parseInt(countEvenNumbers));
+                        document.getElementById("answerAverageEven").value = averageEvenNumbers.toFixed(2);
+                    }
+
+                }
+                //Validates if input is 0
+                else if (document.getElementById("getNumber").value == 0) {
+                    alert("Number 0 not accepted!");
+                }
+
+                //Validates if input is odd
+                else {
+                        oddNumber = parseInt(document.getElementById("getNumber").value);
+
+                    //Validates if Odd input is not a number
+                    if (isNaN(oddNumber)) {
+                        alert("not a number");
+                    }
+
+                    //If input is a number then do sum and average
+                    else {
+                        sumOddNumbers += oddNumber;
+                        countOddNumbers++;
+                        document.getElementById("answerSumOdd").value = sumOddNumbers;
+                        averageOddNumbers = (parseInt(sumOddNumbers) / parseInt(countOddNumbers));
+                        document.getElementById("answerAverageOdd").value = averageOddNumbers.toFixed(2);
+                    }
+
+                    
+                }
+            }
+
+
+        </script>
+    </head>
+    <body>
+        <h1>Enter numbers to check Sum and Average</h1>
+        <p>Enter as many numbers as you want and they are going to be seperated by even or odd.</p>
+        
+        <fieldset>
+            <label>Enter a number:</label>
+            <input type="text" id="getNumber" />
+            <input type="button" value="Submit" onclick="ValidateNumber()" id="submit_button" />
+
+        </fieldset>
+        <div id="blocks">
+            <div id="Even">
+                <h2>Sum Even Numbers</h2>
+                <input type="text" id="answerSumEven" />
+                <h2>Average Even Numbers</h2>
+                <input type="text" id="answerAverageEven" />
+
+            </div>
+            <div id="Odd">
+                <h2>Sum Odd Numbers</h2>
+                <input type="text" id="answerSumOdd" />
+                <h2>Average Odd Numbers</h2>
+                <input type="text" id="answerAverageOdd" />
+
+            </div>
+        </div>
+    </body>
+
+//nao ta funfando me ajuda!!!!
+
+<script>
+
+        
+        var nameArr = [];
+        var numberArr = [];
+
+        var name = document.getElementById("name").value;
+        var phone = document.getElementById("phone").value;
+        
+
+        function addToList() {
+
+            
+
+            nameArr.push(name);
+            numberArr.push(phone);
+            
+        }
+
+        function removeFromList() {
+
+            for (var i = 0; i < nameArr.length; i++) {
+
+                if (name == nameArr[i]) {
+
+                    nameArr[i].remove(name);
+                    numberArr[i].remove(phone);
+                }
+                else {
+                    alert("user not found");
+                }
+            }
+        }
+
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
